@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import '../auth/data/services/auth_services.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final authService = AuthServices();
     return Scaffold(
       body: Column(
         children: [
@@ -18,8 +20,8 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          const Text(
-            'Your one-stop solution for all your air travel needs.',
+          Text(
+            authService.getCurrentUser() ?? 'No user logged in',
             style: TextStyle(fontSize: 16),
           ),
         ],
