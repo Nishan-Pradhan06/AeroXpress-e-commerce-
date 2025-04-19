@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import '../features/auth/presentation/screens/auth_screen.dart';
+import '../features/auth/presentation/screens/verify_with_otp_screen.dart';
 import '../features/users/home_screen.dart';
 
 final router = GoRouter(
@@ -11,9 +12,14 @@ final router = GoRouter(
       builder: (context, state) => AuthScreen(),
     ),
     GoRoute(
-      path: '/home',
+      path: '/HomeScreen',
       name: 'HomeScreen',
       builder: (context, state) => HomeScreen(),
+    ),
+    GoRoute(
+      path: '/VerifyOTP',
+      name: 'VerifyOTP',
+      builder: (context, state) => VerifyWithOtpScreen(),
     ),
   ],
 );

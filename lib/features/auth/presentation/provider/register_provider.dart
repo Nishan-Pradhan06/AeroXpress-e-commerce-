@@ -16,15 +16,11 @@ class RegisterProvider extends ChangeNotifier {
     _authRepo = AuthRepoImpl();
   }
 
-  void signUp(
-    String email,
-    String password,
-    BuildContext context,
-  ) async {
+  void signUp(String email, String password, BuildContext context) async {
     _isLoading = true;
     notifyListeners();
     try {
-      if (email.isEmpty || password.isEmpty ) {
+      if (email.isEmpty || password.isEmpty) {
         ToastCustomization.showErrorToast(
           title: 'Missing Info',
           message: 'All fields required',
@@ -32,7 +28,7 @@ class RegisterProvider extends ChangeNotifier {
       }
       await _authRepo.signUp(email, password);
       if (context.mounted) {
-        context.pushNamed('AuthScreen');
+        context.pushNamed('VerifyOTP');
       }
       ToastCustomization.showSuccessToast(title: 'Registration Success');
     } catch (e) {

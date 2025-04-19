@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/utils/exception_handler.dart';
@@ -29,7 +28,7 @@ class LoginProvider extends ChangeNotifier {
       }
       await _authRepo.signIn(email, password);
       if (context.mounted) {
-        context.pushNamed('HomeScreen');
+        context.pushReplacementNamed('HomeScreen');
       }
       ToastCustomization.showSuccessToast(
         title: 'Login Success',
