@@ -28,7 +28,7 @@ class LoginProvider extends ChangeNotifier {
       }
       await _authRepo.signIn(email, password);
       if (context.mounted) {
-        context.pushReplacementNamed('HomeScreen');
+        context.pushReplacementNamed('BottomNavBar');
       }
       ToastCustomization.showSuccessToast(
         title: 'Login Success',
