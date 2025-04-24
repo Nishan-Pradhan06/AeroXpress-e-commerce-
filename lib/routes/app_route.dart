@@ -1,31 +1,25 @@
-import 'package:aero_xpress/features/bottom_nav_bar.dart';
 import 'package:go_router/go_router.dart';
-import '../features/auth/presentation/screens/auth_screen.dart';
-import '../features/auth/presentation/screens/verify_with_otp_screen.dart';
-import '../features/users/home_screen.dart';
+import '../features/auth/presentation/screens/login_screen.dart';
+import '../features/auth/presentation/screens/register_screen.dart';
+import '../features/bottomNavBar/bottom_nav_bar.dart';
 
 final router = GoRouter(
   initialLocation: '/',
   routes: [
     GoRoute(
       path: '/',
-      name: 'AuthScreen',
-      builder: (context, state) => AuthScreen(),
+      name: 'LoginScreen',
+      builder: (context, state) => LoginScreen(),
     ),
     GoRoute(
-      path: '/HomeScreen',
-      name: 'HomeScreen',
-      builder: (context, state) => HomeScreen(),
+      path: 'register-screen',
+      name: 'RegisterScreen',
+      builder: (context, state) => RegisterScreen(),
     ),
     GoRoute(
-      path: '/VerifyOTP',
-      name: 'VerifyOTP',
-      builder: (context, state) => VerifyWithOtpScreen(),
-    ),
-    GoRoute(
-      path: '/BottomNavBar',
-      name: 'BottomNavBar',
-      builder: (context, state) => CustomNavBarDemo(),
+      path: 'BottomNavBar',
+      name: 'BottomNavBarScreen',
+      builder: (context, state) => BottomNavBarScreen(),
     ),
   ],
 );
