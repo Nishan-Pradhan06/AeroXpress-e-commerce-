@@ -1,10 +1,12 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'app_colors.dart';
 
 final ThemeData appThemeData = ThemeData(
   useMaterial3: true,
-  fontFamily: 'Poppins',
+  fontFamily: 'Roboto',
   primaryColor: brandPrimaryColor,
   // scaffoldBackgroundColor: backgroundLight,
   hintColor: textMutedColor,
@@ -27,7 +29,7 @@ final ThemeData appThemeData = ThemeData(
     backgroundColor: brandPrimaryColor,
     iconTheme: const IconThemeData(color: Colors.white),
     titleTextStyle: const TextStyle(
-      fontFamily: 'Poppins',
+      fontFamily: 'Roboto',
       fontSize: 20,
       fontWeight: FontWeight.w600,
       color: Colors.white,
