@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
-import 'package:toastification/toastification.dart';
+import 'features/auth/presentation/provider/login_provider.dart';
+import 'features/auth/presentation/provider/register_provider.dart';
+import 'path/main.dart';
 import 'core/theme/app_theme.dart';
 import 'routes/app_route.dart';
 
@@ -21,8 +20,8 @@ class MyApp extends StatelessWidget {
           builder: (context) {
             return MultiProvider(
               providers: [
-                // ChangeNotifierProvider(create: (_) => LoginProvider()),
-                // ChangeNotifierProvider(create: (_) => RegisterProvider()),
+                ChangeNotifierProvider(create: (_) => LoginProvider()),
+                ChangeNotifierProvider(create: (_) => RegisterProvider()),
               ],
               child: ToastificationWrapper(
                 child: MaterialApp.router(
