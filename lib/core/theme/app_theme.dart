@@ -9,6 +9,9 @@ final ThemeData appThemeData = ThemeData(
   fontFamily: 'Roboto',
   primaryColor: brandPrimaryColor,
   // scaffoldBackgroundColor: backgroundLight,
+  splashColor: Colors.transparent,
+  highlightColor: brandPrimaryColor.withOpacity(0.2),
+  hoverColor: brandPrimaryColor.withOpacity(0.2),
   hintColor: textMutedColor,
   colorScheme: ColorScheme.fromSeed(
     seedColor: brandPrimaryColor,
@@ -116,17 +119,24 @@ final ThemeData appThemeData = ThemeData(
     backgroundColor: neutralWhiteColor,
     selectedItemColor: brandPrimaryColor,
     unselectedItemColor: textMutedColor,
-    selectedLabelStyle: const TextStyle(
+    selectedIconTheme: IconThemeData(size: 28, color: brandPrimaryColor),
+    unselectedIconTheme: IconThemeData(size: 24, color: textMutedColor),
+    selectedLabelStyle: TextStyle(
       fontSize: 12,
-      fontFamily: 'Roboto',
-
       fontWeight: FontWeight.w600,
-    ),
-    unselectedLabelStyle: const TextStyle(
-      fontSize: 12,
       fontFamily: 'Roboto',
-
-      fontWeight: FontWeight.w400,
+      letterSpacing: 0.5,
     ),
+    unselectedLabelStyle: TextStyle(
+      fontSize: 11,
+      fontWeight: FontWeight.w400,
+      fontFamily: 'Roboto',
+      letterSpacing: 0.2,
+    ),
+    showSelectedLabels: true,
+    showUnselectedLabels: true,
+    type: BottomNavigationBarType.fixed,
+    enableFeedback: true,
+    // landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
   ),
 );
