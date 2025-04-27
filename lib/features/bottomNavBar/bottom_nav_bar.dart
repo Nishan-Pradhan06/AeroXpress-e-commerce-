@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../../core/widget/badge.dart';
 import '../cutomers/cart_screen.dart';
 import '../cutomers/category_screen.dart';
 import '../cutomers/home_screen.dart';
@@ -51,8 +52,14 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
               label: 'Category',
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/svg/cart.svg'),
-              activeIcon: SvgPicture.asset('assets/svg/cart_bold.svg'),
+              icon: CustomBadge(
+                count: '4',
+                child: SvgPicture.asset('assets/svg/cart.svg'),
+              ),
+              activeIcon: CustomBadge(
+                count: '4',
+                child: SvgPicture.asset('assets/svg/cart_bold.svg'),
+              ),
               label: 'Cart',
             ),
             BottomNavigationBarItem(
