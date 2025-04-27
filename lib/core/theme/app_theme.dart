@@ -111,4 +111,22 @@ final ThemeData appThemeData = ThemeData(
       padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
     ),
   ),
+
+  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    backgroundColor: neutralWhiteColor,
+    selectedItemColor: brandPrimaryColor,
+    unselectedItemColor: textMutedColor,
+    selectedLabelStyle: const TextStyle(
+      fontSize: 12,
+      fontFamily: 'Roboto',
+
+      fontWeight: FontWeight.w600,
+    ),
+    unselectedLabelStyle: const TextStyle(
+      fontSize: 12,
+      fontFamily: 'Roboto',
+
+      fontWeight: FontWeight.w400,
+    ),
+  ),
 );

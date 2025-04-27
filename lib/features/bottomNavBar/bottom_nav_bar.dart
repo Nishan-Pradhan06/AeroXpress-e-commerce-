@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../cutomers/favourites_screen.dart';
+import '../cutomers/cart_screen.dart';
+import '../cutomers/category_screen.dart';
 import '../cutomers/home_screen.dart';
 import '../cutomers/profile_screen.dart';
 
@@ -16,17 +17,19 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
 
   final List<Widget> _screens = [
     HomeScreen(),
-    FavouritesScreen(),
+    CategoryScreen(),
+    CartScreen(),
     ProfileScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screens[_currentIndex],
+      body: IndexedStack(index: _currentIndex, children: _screens),
       bottomNavigationBar: Material(
         elevation: 8,
         child: BottomNavigationBar(
+          // selectedLabelStyle: ,
           type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,
           onTap: (index) {
@@ -34,23 +37,28 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
               _currentIndex = index;
             });
           },
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
+          // showSelectedLabels: false,
+          // showUnselectedLabels: false,
           items: [
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/svg/Home.svg'),
-              activeIcon: SvgPicture.asset('assets/svg/Home-bold.svg'),
-              label: '',
+              icon: SvgPicture.asset('assets/svg/home.svg'),
+              activeIcon: SvgPicture.asset('assets/svg/home_bold.svg'),
+              label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/svg/Heart.svg'),
-              activeIcon: SvgPicture.asset('assets/svg/Heart-bold.svg'),
-              label: '',
+              icon: SvgPicture.asset('assets/svg/category.svg'),
+              activeIcon: SvgPicture.asset('assets/svg/category_bold.svg'),
+              label: 'Category',
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/svg/Profile.svg'),
-              activeIcon: SvgPicture.asset('assets/svg/Profile-bold.svg'),
-              label: '',
+              icon: SvgPicture.asset('assets/svg/cart.svg'),
+              activeIcon: SvgPicture.asset('assets/svg/cart_bold.svg'),
+              label: 'Cart',
+            ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset('assets/svg/profile.svg'),
+              activeIcon: SvgPicture.asset('assets/svg/profile_bold.svg'),
+              label: 'Profile',
             ),
           ],
         ),
