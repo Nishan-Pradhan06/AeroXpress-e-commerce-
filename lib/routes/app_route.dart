@@ -1,3 +1,4 @@
+import '../features/onBoarding/on_boarding_screen.dart';
 import '../path/main.dart';
 import '../features/auth/presentation/screens/login_screen.dart';
 import '../features/auth/presentation/screens/register_screen.dart';
@@ -8,6 +9,11 @@ final router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
+      name: 'OnBoardingScreen',
+      builder: (context, state) => OnBoardingScreen(),
+    ),
+    GoRoute(
+      path: 'bottomNav',
       name: 'BottomNavBarScreen',
       builder: (context, state) => BottomNavBarScreen(),
     ),
