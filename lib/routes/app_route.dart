@@ -13,7 +13,7 @@ final router = GoRouter(
       builder: (context, state) => OnBoardingScreen(),
     ),
     GoRoute(
-      path: 'bottomNav',
+      path: '/bottomNav',
       name: 'BottomNavBarScreen',
       builder: (context, state) => BottomNavBarScreen(),
     ),
@@ -23,7 +23,7 @@ final router = GoRouter(
       builder: (context, state) => LoginScreen(),
     ),
     GoRoute(
-      path: 'register-screen',
+      path: 'registerScreen',
       name: 'RegisterScreen',
       builder: (context, state) => RegisterScreen(),
     ),

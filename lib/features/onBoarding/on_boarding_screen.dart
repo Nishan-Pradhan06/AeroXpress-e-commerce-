@@ -1,5 +1,7 @@
 import 'package:aero_xpress/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -16,21 +18,21 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     {
       "title": "Purchase Online !!",
       "subtitle":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing, sed do eiusmod tempor ut labore",
+          "Browse a wide range of products and place your order easily from the comfort of your home.",
       "image": "assets/image/purchase_online.png",
       "onBoarding": "assets/image/shape1.png",
     },
     {
-      "title": "Track order !!",
+      "title": "Track Order !!",
       "subtitle":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing, sed do eiusmod tempor ut labore",
+          "Stay updated with real-time tracking and know exactly when your package will arrive.",
       "image": "assets/image/track_order.png",
       "onBoarding": "assets/image/shape2.png",
     },
     {
-      "title": "Get your order !!",
+      "title": "Get Your Order !!",
       "subtitle":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing, sed do eiusmod tempor ut labore",
+          "Receive your order at your doorstep quickly and securely with our trusted delivery service.",
       "image": "assets/image/get_your_order.png",
       "onBoarding": "assets/image/shape3.png",
     },
@@ -59,14 +61,46 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 ),
           ),
           Positioned(
-            bottom: 50,
-            left: 0,
+            bottom: 30,
+            left: 30,
             right: 0,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                onboardingData.length,
-                (index) => buildDot(index: index),
+            child: SizedBox(
+              height: 30,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: List.generate(
+                          onboardingData.length,
+                          (index) => buildDot(index: index),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10.0),
+                    child: SizedBox(
+                      width: 30,
+                      child: Center(
+                        child: Visibility(
+                          visible: _currentPage >= onboardingData.length - 1,
+                          child: ShadIconButton(
+                            onPressed: () {
+                              context.pushReplacementNamed(
+                                'BottomNavBarScreen',
+                              );
+                            },
+                            icon: Icon(Icons.arrow_forward_ios, size: 12),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -110,8 +144,9 @@ class OnBoardingContent extends StatelessWidget {
           // width: MediaQuery.of(context).size.width,
           // fit: BoxFit.cover,
         ),
+
         const SizedBox(height: 40),
-        Expanded(child: Image.asset(image)),
+        Expanded(child: Image.asset(image, height: 200, width: 200)),
         const SizedBox(height: 40),
         Text(
           title,
