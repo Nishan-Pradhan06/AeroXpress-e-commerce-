@@ -6,7 +6,7 @@ import 'app_colors.dart';
 
 final ThemeData appThemeData = ThemeData(
   useMaterial3: true,
-  fontFamily: 'Roboto',
+  fontFamily: 'Poppins',
   primaryColor: brandPrimaryColor,
   // scaffoldBackgroundColor: backgroundLight,
   splashColor: Colors.transparent,
@@ -32,7 +32,7 @@ final ThemeData appThemeData = ThemeData(
     backgroundColor: brandPrimaryColor,
     iconTheme: const IconThemeData(color: Colors.white),
     titleTextStyle: const TextStyle(
-      fontFamily: 'Roboto',
+      fontFamily: 'Poppins',
       fontSize: 20,
       fontWeight: FontWeight.w600,
       color: Colors.white,
@@ -124,13 +124,13 @@ final ThemeData appThemeData = ThemeData(
     selectedLabelStyle: TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.w600,
-      fontFamily: 'Roboto',
+      fontFamily: 'Poppins',
       letterSpacing: 0.5,
     ),
     unselectedLabelStyle: TextStyle(
       fontSize: 11,
       fontWeight: FontWeight.w400,
-      fontFamily: 'Roboto',
+      fontFamily: 'Poppins',
       letterSpacing: 0.2,
     ),
     showSelectedLabels: true,
