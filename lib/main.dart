@@ -1,6 +1,6 @@
 import 'features/auth/presentation/provider/login_provider.dart';
 import 'features/auth/presentation/provider/register_provider.dart';
-import 'path/main.dart';
+import 'path/path.dart';
 import 'core/theme/app_theme.dart';
 import 'routes/app_route.dart';
 

@@ -1,7 +1,4 @@
-import 'package:aero_xpress/core/theme/app_colors.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
+import '../../path/path.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});

@@ -1,5 +1,5 @@
 import '../features/onBoarding/on_boarding_screen.dart';
-import '../path/main.dart';
+import '../path/path.dart';
 import '../features/auth/presentation/screens/login_screen.dart';
 import '../features/auth/presentation/screens/register_screen.dart';
 import '../features/bottomNavBar/bottom_nav_bar.dart';
