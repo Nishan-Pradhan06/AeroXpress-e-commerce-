@@ -24,7 +24,7 @@ final router = GoRouter(
       builder: (context, state) => BottomNavBarScreen(),
     ),
     GoRoute(
-      path: 'loginScreen',
+      path: '/loginScreen',
       name: 'LoginScreen',
       builder: (context, state) => LoginScreen(),
     ),

@@ -4,7 +4,7 @@ import '../../core/widget/badge.dart';
 import '../cutomers/cart_screen.dart';
 import '../cutomers/category_screen.dart';
 import '../cutomers/home_screen.dart';
-import '../cutomers/profile_screen.dart';
+import '../cutomers/screens/profile/profile_screen.dart';
 
 class BottomNavBarScreen extends StatefulWidget {
   const BottomNavBarScreen({super.key});
