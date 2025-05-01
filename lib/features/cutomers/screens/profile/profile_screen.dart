@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
-
+import '../../../../path/path.dart';
 import 'widget/profile_option_list.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -60,20 +57,15 @@ class ProfileScreen extends StatelessWidget {
             buildProfileOption('Privacy Policy', Icons.privacy_tip),
             buildProfileOption('Help Center', Icons.help_center),
             buildProfileOption('Invite Friends', Icons.people_alt),
-
-            // Logout option
-            SizedBox(height: 16),
             ListTile(
-              leading: Icon(Icons.logout, color: Colors.red),
-              title: Text('Logout', style: TextStyle(color: Colors.red)),
+              leading: Icon(
+                LucideIcons.logOut,
+                color: statusErrorColor,
+                size: 18,
+              ),
+              title: Text('Logout', style: TextStyle(color: statusErrorColor)),
               onTap: () {
-                // Handle logout
-              },
-            ),
-            ShadButton(
-              child: Text('Register'),
-              onPressed: () {
-                context.pushNamed('LoginScreen');
+                context.goNamed('LoginScreen');
               },
             ),
           ],
