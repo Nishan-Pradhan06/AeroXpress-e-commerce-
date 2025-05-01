@@ -1,4 +1,5 @@
 import '../../../../path/path.dart';
+import '../../providers/theme_provider.dart';
 import 'widget/profile_option_list.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -53,7 +54,27 @@ class ProfileScreen extends StatelessWidget {
             buildProfileOption('Payment', Icons.payment),
             buildProfileOption('Security', Icons.security),
             buildProfileOption('Language', Icons.language),
-            buildProfileOption('Dark Mode', Icons.dark_mode),
+            Consumer<ThemeProvider>(
+              builder: (context, provider, _) {
+                final mode = provider.themeMode;
+
+                final icon =
+                    mode == ThemeMode.dark
+                        ? Icons.dark_mode
+                        : mode == ThemeMode.light
+                        ? Icons.light_mode
+                        : Icons.settings_brightness;
+
+                return buildProfileOption(
+                  'Theme',
+                  icon,
+                  onTap: () {
+                    context.pushNamed('ThemeSelectorScreen');
+                  },
+                );
+              },
+            ),
+
             buildProfileOption('Privacy Policy', Icons.privacy_tip),
             buildProfileOption('Help Center', Icons.help_center),
             buildProfileOption('Invite Friends', Icons.people_alt),

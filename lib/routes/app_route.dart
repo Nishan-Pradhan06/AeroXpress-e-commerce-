@@ -1,3 +1,4 @@
+import '../features/cutomers/screens/profile/theme_screen.dart';
 import '../features/onBoarding/on_boarding_screen.dart';
 import '../features/splashScreen/splash_screen.dart';
 import '../path/path.dart';
@@ -32,6 +33,11 @@ final router = GoRouter(
       path: 'registerScreen',
       name: 'RegisterScreen',
       builder: (context, state) => RegisterScreen(),
+    ),
+    GoRoute(
+      path: '/themeSelectorScreen',
+      name: 'ThemeSelectorScreen',
+      builder: (context, state) => ThemeSelectorScreen(),
     ),
   ],
 );

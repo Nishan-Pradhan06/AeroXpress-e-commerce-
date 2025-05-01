@@ -1,7 +1,9 @@
+import 'core/theme/app_color.dart';
+import 'core/theme/app_theme.dart';
 import 'features/auth/presentation/provider/login_provider.dart';
 import 'features/auth/presentation/provider/register_provider.dart';
+import 'features/cutomers/providers/theme_provider.dart';
 import 'path/path.dart';
-import 'core/theme/app_theme.dart';
 import 'routes/app_route.dart';
 
 void main() async {
@@ -16,23 +18,28 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ShadApp.custom(
       appBuilder: (BuildContext context, ThemeData theme) {
-        return Builder(
-          builder: (context) {
-            return MultiProvider(
-              providers: [
-                ChangeNotifierProvider(create: (_) => LoginProvider()),
-                ChangeNotifierProvider(create: (_) => RegisterProvider()),
-              ],
-              child: ToastificationWrapper(
+        return MultiProvider(
+          providers: [
+            ChangeNotifierProvider(create: (_) => LoginProvider()),
+            ChangeNotifierProvider(create: (_) => RegisterProvider()),
+            ChangeNotifierProvider(create: (_) => ThemeProvider()),
+          ],
+          child: Consumer<ThemeProvider>(
+            builder: (context, themeProvider, _) {
+              return ToastificationWrapper(
                 child: MaterialApp.router(
                   title: 'AeroXpress',
-                  theme: appThemeData,
+                  theme: buildAppTheme(AppColors.lightTheme),
+                  darkTheme: buildAppTheme(AppColors.darkTheme),
+                  themeMode: themeProvider.themeMode,
+                  themeAnimationCurve: Curves.easeInOut,
+                  themeAnimationStyle: AnimationStyle(curve: Curves.bounceIn),
                   debugShowCheckedModeBanner: false,
                   routerConfig: router,
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         );
       },
     );
