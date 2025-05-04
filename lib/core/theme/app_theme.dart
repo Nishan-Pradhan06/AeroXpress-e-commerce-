@@ -10,10 +10,10 @@ ThemeData buildAppTheme(AppColors colors) {
     fontFamily: 'Poppins',
     primaryColor: colors.brandPrimary,
     scaffoldBackgroundColor: colors.background,
-    splashColor: Colors.transparent,
-    highlightColor: colors.brandPrimary.withOpacity(0.2),
+    splashColor: colors.brandPrimary.withOpacity(0.2),
+    // highlightColor: colors.brandPrimary.withOpacity(0.2),
     hoverColor: colors.brandPrimary.withOpacity(0.2),
-    hintColor: colors.textMuted,
+    // hintColor: colors.textMuted,
     colorScheme: ColorScheme.fromSeed(
       brightness:
           colors == AppColors.darkTheme ? Brightness.dark : Brightness.light,

@@ -1,11 +1,11 @@
 package_rename_config:
   android:
-    app_name: AeroXpress
+    app_name: Deal Sell
     package_name: com.saino.aero_xpress
-    override_old_package: com.example.aero_xpress
+    override_old_package: com.saino.aero_xpress
     lang:
 
   ios:
-    app_name: AeroXpress
+    app_name: Deal Sell
     bundle_name: AeroXpress
-    package_name: com.example.aero_xpress
+    package_name: com.saino.aero_xpress
