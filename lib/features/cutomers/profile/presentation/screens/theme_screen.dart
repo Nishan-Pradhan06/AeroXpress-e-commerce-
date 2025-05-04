@@ -1,5 +1,5 @@
-import '../../../../path/path.dart';
-import '../../providers/theme_provider.dart';
+import '../../../../../path/path.dart';
+import '../providers/theme_provider.dart';
 
 class ThemeSelectorScreen extends StatelessWidget {
   const ThemeSelectorScreen({super.key});

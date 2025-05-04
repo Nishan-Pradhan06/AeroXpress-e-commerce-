@@ -1,10 +1,10 @@
-import '../features/cutomers/screens/profile/theme_screen.dart';
+import '../features/cutomers/profile/presentation/screens/theme_screen.dart';
 import '../features/onBoarding/on_boarding_screen.dart';
 import '../features/splashScreen/splash_screen.dart';
 import '../path/path.dart';
 import '../features/auth/presentation/screens/login_screen.dart';
 import '../features/auth/presentation/screens/register_screen.dart';
-import '../features/bottomNavBar/bottom_nav_bar.dart';
+import '../features/cutomers/bottomNavBar/bottom_nav_bar.dart';
 
 final router = GoRouter(
   initialLocation: '/',

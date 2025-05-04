@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/animations/vertical_text_scroll.dart';
+import '../../../../../core/animations/vertical_text_scroll.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});

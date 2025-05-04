@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../core/widget/badge.dart';
-import '../cutomers/cart_screen.dart';
-import '../cutomers/category_screen.dart';
-import '../cutomers/home_screen.dart';
-import '../cutomers/screens/profile/profile_screen.dart';
+import '../../../core/widget/badge.dart';
+import '../cart/presentation/screens/cart_screen.dart';
+import '../category/presentation/screens/category_screen.dart';
+import '../home/presentation/screen/home_screen.dart';
+import '../profile/presentation/screens/profile_screen.dart';
 
 class BottomNavBarScreen extends StatefulWidget {
   const BottomNavBarScreen({super.key});

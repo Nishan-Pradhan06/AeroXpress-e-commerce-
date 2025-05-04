@@ -1,6 +1,6 @@
-import '../../../../path/path.dart';
-import '../../providers/theme_provider.dart';
-import 'widget/profile_option_list.dart';
+import '../../../../../path/path.dart';
+import '../providers/theme_provider.dart';
+import '../widget/profile_option_list.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
