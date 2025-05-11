@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'product_details_screen.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -399,7 +401,13 @@ class PopularProducts extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 20),
                     child: ProductCard(
                       product: demoProducts[index],
-                      onPress: () {},
+                      onPress: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetailsScreen(),
+                          ),
+                        );
+                      },
                     ),
                   );
                 }
