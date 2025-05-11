@@ -1,4 +1,3 @@
-import 'core/theme/app_color.dart';
 import 'core/theme/app_theme.dart';
 import 'features/auth/presentation/provider/login_provider.dart';
 import 'features/auth/presentation/provider/register_provider.dart';
@@ -29,9 +28,7 @@ class MyApp extends StatelessWidget {
               return ToastificationWrapper(
                 child: MaterialApp.router(
                   title: 'AeroXpress',
-                  theme: buildAppTheme(AppColors.lightTheme),
-                  darkTheme: buildAppTheme(AppColors.darkTheme),
-                  themeMode: themeProvider.themeMode,
+                  theme: appThemeData,
                   themeAnimationCurve: Curves.easeInOut,
                   themeAnimationStyle: AnimationStyle(curve: Curves.bounceIn),
                   debugShowCheckedModeBanner: false,
