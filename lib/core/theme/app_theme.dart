@@ -28,23 +28,31 @@ ThemeData buildAppTheme(AppColors colors) {
       onError: colors.neutralWhite,
     ),
     appBarTheme: AppBarTheme(
+      scrolledUnderElevation: 0,
       elevation: 0,
       centerTitle: true,
-      backgroundColor: colors.brandPrimary,
-      iconTheme: IconThemeData(color: colors.neutralWhite),
+      backgroundColor:
+          colors == AppColors.darkTheme
+              ? colors.neutralWhite
+              : colors.brandPrimary,
+      iconTheme: IconThemeData(color: colors.brandPrimary),
       titleTextStyle: TextStyle(
         fontFamily: 'Poppins',
         fontSize: 20,
         fontWeight: FontWeight.w600,
-        color: colors.neutralWhite,
+        color: colors.brandPrimary,
       ),
-      systemOverlayStyle: const SystemUiOverlayStyle(
+      actionsIconTheme: IconThemeData(color: colors.brandPrimary),
+      systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.light,
+        statusBarIconBrightness:
+            colors == AppColors.darkTheme ? Brightness.dark : Brightness.light,
+
         systemNavigationBarColor: Colors.transparent,
-        systemNavigationBarIconBrightness: Brightness.light,
+        systemNavigationBarIconBrightness: Brightness.dark,
       ),
     ),
+
     textTheme: TextTheme(
       displayLarge: const TextStyle(
         fontSize: 72.0,
@@ -114,6 +122,27 @@ ThemeData buildAppTheme(AppColors colors) {
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
       ),
     ),
+    tabBarTheme: TabBarTheme(
+      indicatorSize: TabBarIndicatorSize.tab,
+
+      labelColor: colors.neutralWhite,
+      unselectedLabelColor: colors.neutralWhite.withOpacity(0.7),
+      indicator: UnderlineTabIndicator(
+        borderSide: BorderSide(width: 3.0, color: colors.neutralWhite),
+        insets: EdgeInsets.all(2),
+      ),
+      labelStyle: const TextStyle(
+        fontFamily: 'Poppins',
+        fontWeight: FontWeight.w600,
+        fontSize: 14,
+      ),
+      unselectedLabelStyle: const TextStyle(
+        fontFamily: 'Poppins',
+        fontWeight: FontWeight.w500,
+        fontSize: 13,
+      ),
+    ),
+
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: colors.cardBackground,
       selectedItemColor: colors.brandPrimary,

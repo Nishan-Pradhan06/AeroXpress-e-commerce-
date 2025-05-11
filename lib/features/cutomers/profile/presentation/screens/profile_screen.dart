@@ -1,3 +1,5 @@
+import 'dart:developer';
+import '../../../../../core/widget/custom_appbar.dart';
 import '../../../../../path/path.dart';
 import '../providers/theme_provider.dart';
 import '../widget/profile_option_list.dart';
@@ -8,7 +10,8 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Profile Screen')),
+      appBar: CustomAppBar(title: 'Profile',),
+
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(vertical: 10.0),
         child: Column(
@@ -76,7 +79,14 @@ class ProfileScreen extends StatelessWidget {
             ),
 
             buildProfileOption('Privacy Policy', Icons.privacy_tip),
-            buildProfileOption('Help Center', Icons.help_center),
+            buildProfileOption(
+              'Help Center',
+              Icons.help_center,
+              onTap: () {
+                context.pushNamed('HelpCenter');
+                log('help center');
+              },
+            ),
             buildProfileOption('Invite Friends', Icons.people_alt),
             ListTile(
               leading: Icon(
