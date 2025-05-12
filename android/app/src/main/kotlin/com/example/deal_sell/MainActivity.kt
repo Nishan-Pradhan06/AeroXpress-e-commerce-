@@ -1,4 +1,4 @@
-package com.saino.aero_xpress
+package com.example.deal_sell
 
 import io.flutter.embedding.android.FlutterActivity
 

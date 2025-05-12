@@ -1,3 +1,4 @@
+import '../../core/theme/app_colors.dart';
 import '../../path/path.dart';
 
 class OnBoardingScreen extends StatefulWidget {
