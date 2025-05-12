@@ -1,3 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+
 import 'core/theme/app_theme.dart';
 import 'features/auth/presentation/provider/login_provider.dart';
 import 'features/auth/presentation/provider/register_provider.dart';
@@ -6,6 +9,9 @@ import 'path/path.dart';
 import 'routes/app_route.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
   runApp(const MyApp());
 }
 
@@ -27,7 +33,7 @@ class MyApp extends StatelessWidget {
             builder: (context, themeProvider, _) {
               return ToastificationWrapper(
                 child: MaterialApp.router(
-                  title: 'AeroXpress',
+                  title: 'Deal Sell',
                   theme: appThemeData,
                   themeAnimationCurve: Curves.easeInOut,
                   themeAnimationStyle: AnimationStyle(curve: Curves.bounceIn),

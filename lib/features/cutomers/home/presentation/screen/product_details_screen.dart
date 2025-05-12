@@ -224,10 +224,10 @@ class _SmallProductImageState extends State<SmallProductImage> {
 
 class ProductDescription extends StatelessWidget {
   const ProductDescription({
-    Key? key,
+    super.key,
     required this.product,
     this.pressOnSeeMore,
-  }) : super(key: key);
+  });
 
   final Product product;
   final GestureTapCallback? pressOnSeeMore;
@@ -304,7 +304,7 @@ class ProductDescription extends StatelessWidget {
 }
 
 class ColorDots extends StatelessWidget {
-  const ColorDots({Key? key, required this.product}) : super(key: key);
+  const ColorDots({super.key, required this.product});
 
   final Product product;
 
@@ -337,8 +337,7 @@ class ColorDots extends StatelessWidget {
 }
 
 class ColorDot extends StatelessWidget {
-  const ColorDot({Key? key, required this.color, this.isSelected = false})
-    : super(key: key);
+  const ColorDot({super.key, required this.color, this.isSelected = false});
 
   final Color color;
   final bool isSelected;
@@ -366,11 +365,11 @@ class ColorDot extends StatelessWidget {
 
 class RoundedIconBtn extends StatelessWidget {
   const RoundedIconBtn({
-    Key? key,
+    super.key,
     required this.icon,
     required this.press,
     this.showShadow = false,
-  }) : super(key: key);
+  });
 
   final IconData icon;
   final GestureTapCancelCallback press;
