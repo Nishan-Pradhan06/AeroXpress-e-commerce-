@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1077385013591",
+    "project_id": "dealsell-3acb5",
+    "storage_bucket": "dealsell-3acb5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077385013591:android:7f4d2da5bd24624872f612",
+        "android_client_info": {
+          "package_name": "com.example.deal_sell"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDSXct1bw-YDK998ZzAy_yIrITlI2OuXk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
