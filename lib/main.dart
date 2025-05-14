@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
@@ -12,7 +13,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
-  runApp(const MyApp());
+  runApp(DevicePreview(enabled: false, builder: (context) => MyApp()));
 }
 
 class MyApp extends StatelessWidget {
