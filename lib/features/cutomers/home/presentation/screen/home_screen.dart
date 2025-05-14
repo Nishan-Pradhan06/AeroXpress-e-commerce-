@@ -1,3 +1,4 @@
+import 'package:deal_sell/core/widget/padding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -12,14 +13,13 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Column(
+            spacing: 10,
             children: [
               HomeHeader(),
               DiscountBanner(),
               Categories(),
               SpecialOffers(),
-              SizedBox(height: 20),
               PopularProducts(),
-              SizedBox(height: 20),
             ],
           ),
         ),
@@ -33,19 +33,13 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+    return CustomPadding(
+      top: 10,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const Expanded(child: SearchField()),
           const SizedBox(width: 16),
-          IconBtnWithCounter(
-            // numOfitem: 3,
-            svgSrc: cartIcon,
-            press: () {},
-          ),
-          const SizedBox(width: 8),
           IconBtnWithCounter(svgSrc: bellIcon, numOfitem: 3, press: () {}),
         ],
       ),
@@ -155,24 +149,25 @@ class DiscountBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: const EdgeInsets.all(20),
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-      decoration: BoxDecoration(
-        color: const Color(0xFF4A3298),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: const Text.rich(
-        TextSpan(
-          style: TextStyle(color: Colors.white),
-          children: [
-            TextSpan(text: "A Summer Surpise\n"),
-            TextSpan(
-              text: "Cashback 20%",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-          ],
+    return CustomPadding(
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        decoration: BoxDecoration(
+          color: const Color(0xFF4A3298),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: const Text.rich(
+          TextSpan(
+            style: TextStyle(color: Colors.white),
+            children: [
+              TextSpan(text: "A Summer Surpise\n"),
+              TextSpan(
+                text: "Cashback 20%",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -191,8 +186,7 @@ class Categories extends StatelessWidget {
       {"icon": giftIcon, "text": "Daily Gift"},
       {"icon": discoverIcon, "text": "More"},
     ];
-    return Padding(
-      padding: const EdgeInsets.all(20),
+    return CustomPadding(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -251,10 +245,7 @@ class SpecialOffers extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: SectionTitle(title: "Special for you", press: () {}),
-        ),
+        SectionTitle(title: "Special for you", onTap: () {}),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -263,15 +254,14 @@ class SpecialOffers extends StatelessWidget {
                 image: "https://i.postimg.cc/yY2bNrmd/Image-Banner-2.png",
                 category: "Smartphone",
                 numOfBrands: 18,
-                press: () {},
+                onTap: () {},
               ),
               SpecialOfferCard(
                 image: "https://i.postimg.cc/BQjz4G1k/Image-Banner-3.png",
                 category: "Fashion",
                 numOfBrands: 24,
-                press: () {},
+                onTap: () {},
               ),
-              const SizedBox(width: 20),
             ],
           ),
         ),
@@ -286,19 +276,21 @@ class SpecialOfferCard extends StatelessWidget {
     required this.category,
     required this.image,
     required this.numOfBrands,
-    required this.press,
+    required this.onTap,
   });
 
   final String category, image;
   final int numOfBrands;
-  final GestureTapCallback press;
+  final GestureTapCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20),
+    return CustomPadding(
+      left: 10,
+      right: 0,
+      
       child: GestureDetector(
-        onTap: press,
+        onTap: onTap,
         child: SizedBox(
           width: 242,
           height: 100,
@@ -352,30 +344,32 @@ class SpecialOfferCard extends StatelessWidget {
 }
 
 class SectionTitle extends StatelessWidget {
-  const SectionTitle({super.key, required this.title, required this.press});
+  const SectionTitle({super.key, required this.title, required this.onTap});
 
   final String title;
-  final GestureTapCallback press;
+  final GestureTapCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-            color: Colors.black,
+    return CustomPadding(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: Colors.black,
+            ),
           ),
-        ),
-        TextButton(
-          onPressed: press,
-          style: TextButton.styleFrom(foregroundColor: Colors.grey),
-          child: const Text("See more"),
-        ),
-      ],
+          TextButton(
+            onPressed: onTap,
+            style: TextButton.styleFrom(foregroundColor: Colors.grey),
+            child: const Text("See more"),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -387,18 +381,14 @@ class PopularProducts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: SectionTitle(title: "Popular Products", press: () {}),
-        ),
+        SectionTitle(title: "Popular Products", onTap: () {}),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
               ...List.generate(demoProducts.length, (index) {
                 if (demoProducts[index].isPopular) {
-                  return Padding(
-                    padding: const EdgeInsets.only(left: 20),
+                  return CustomPadding(
                     child: ProductCard(
                       product: demoProducts[index],
                       onPress: () {
@@ -411,10 +401,8 @@ class PopularProducts extends StatelessWidget {
                     ),
                   );
                 }
-
-                return const SizedBox.shrink(); // here by default width and height is 0
+                return const SizedBox.shrink();
               }),
-              const SizedBox(width: 20),
             ],
           ),
         ),
