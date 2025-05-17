@@ -1,4 +1,5 @@
 import '../../../../../path/path.dart';
+import 'contact_tab_screen.dart';
 import 'faq_tab_screen.dart';
 
 class HelpCenterScreen extends StatelessWidget {
@@ -33,11 +34,7 @@ class HelpCenterScreen extends StatelessWidget {
             ),
           ),
         ),
-        body: TabBarView(
-          children: [
-            FaqsScreen(), 
-            Center(child: Text('Contact Information'))],
-        ),
+        body: TabBarView(children: [FaqsScreen(), ContactTabScreen()]),
       ),
     );
   }
