@@ -6,12 +6,24 @@ class CategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Category'),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight),
+        child: Material(
+          elevation: 0.1,
+          color: Colors.white,
+          child: AppBar(
+            backgroundColor: Colors.white,
+            elevation: 0, // Set to 0 since Material provides elevation
+            title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text("Category", style: TextStyle(color: Colors.black)),
+              ],
+            ),
+          ),
+        ),
       ),
-      body: Center(
-        child: Text('Welcome to the category Screen!'),
-      ),
+      body: Center(child: Text('Welcome to the category Screen!')),
     );
   }
 }

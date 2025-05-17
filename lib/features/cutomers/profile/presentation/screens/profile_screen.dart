@@ -11,7 +11,24 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Profile',),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight),
+        child: Material(
+          elevation: 0.1,
+          color: Colors.white,
+          child: AppBar(
+            scrolledUnderElevation: 0,
+            backgroundColor: Colors.white,
+            elevation: 0, // Set to 0 since Material provides elevation
+            title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text("Profile", style: TextStyle(color: Colors.black)),
+              ],
+            ),
+          ),
+        ),
+      ),
 
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(vertical: 10.0),
