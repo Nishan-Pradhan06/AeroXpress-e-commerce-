@@ -13,16 +13,25 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Column(
-          children: [
-            const Text("Your Cart", style: TextStyle(color: Colors.black)),
-            Text(
-              "${demoCarts.length} items",
-              style: Theme.of(context).textTheme.bodySmall,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight),
+        child: Material(
+          elevation: 0.1,
+          color: Colors.white,
+          child: AppBar(
+            backgroundColor: Colors.white,
+            elevation: 0, // Set to 0 since Material provides elevation
+            title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text("Your Cart", style: TextStyle(color: Colors.black)),
+                Text(
+                  "${demoCarts.length} items",
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
       body: Padding(
