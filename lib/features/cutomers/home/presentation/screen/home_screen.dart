@@ -2,6 +2,8 @@ import 'package:deal_sell/core/widget/padding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../widgets/icon_with_btn_counter.dart';
+import '../widgets/search_field.dart';
 import 'product_details_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,6 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+        padding: EdgeInsets.only(top: 30),
         child: Column(
           spacing: 10,
           children: [
@@ -39,103 +42,6 @@ class HomeHeader extends StatelessWidget {
           const Expanded(child: SearchField()),
           const SizedBox(width: 16),
           IconBtnWithCounter(svgSrc: bellIcon, numOfitem: 3, press: () {}),
-        ],
-      ),
-    );
-  }
-}
-
-class SearchField extends StatelessWidget {
-  const SearchField({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-      child: TextFormField(
-        onChanged: (value) {},
-        decoration: InputDecoration(
-          filled: true,
-          hintStyle: const TextStyle(color: Color(0xFF757575)),
-          fillColor: const Color(0xFF979797).withOpacity(0.1),
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 8,
-          ),
-          border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(12)),
-            borderSide: BorderSide.none,
-          ),
-          focusedBorder: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(12)),
-            borderSide: BorderSide.none,
-          ),
-          enabledBorder: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(12)),
-            borderSide: BorderSide.none,
-          ),
-          hintText: "Search product",
-          prefixIcon: const Icon(Icons.search),
-        ),
-      ),
-    );
-  }
-}
-
-class IconBtnWithCounter extends StatelessWidget {
-  const IconBtnWithCounter({
-    super.key,
-    required this.svgSrc,
-    this.numOfitem = 0,
-    required this.press,
-  });
-
-  final String svgSrc;
-  final int numOfitem;
-  final GestureTapCallback press;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(100),
-      onTap: press,
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(12),
-            height: 46,
-            width: 46,
-            decoration: BoxDecoration(
-              color: const Color(0xFF979797).withOpacity(0.1),
-              shape: BoxShape.circle,
-            ),
-            child: SvgPicture.string(svgSrc),
-          ),
-          if (numOfitem != 0)
-            Positioned(
-              top: -3,
-              right: 0,
-              child: Container(
-                height: 20,
-                width: 20,
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFF4848),
-                  shape: BoxShape.circle,
-                  border: Border.all(width: 1.5, color: Colors.white),
-                ),
-                child: Center(
-                  child: Text(
-                    "$numOfitem",
-                    style: const TextStyle(
-                      fontSize: 12,
-                      height: 1,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            ),
         ],
       ),
     );
@@ -286,7 +192,7 @@ class SpecialOfferCard extends StatelessWidget {
     return CustomPadding(
       left: 10,
       right: 0,
-      
+
       child: GestureDetector(
         onTap: onTap,
         child: SizedBox(
