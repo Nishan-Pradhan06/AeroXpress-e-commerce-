@@ -1,6 +1,5 @@
 import 'dart:developer';
 import '../../../../../core/theme/app_colors.dart';
-import '../../../../../core/widget/custom_appbar.dart';
 import '../../../../../path/path.dart';
 import '../providers/theme_provider.dart';
 import '../widget/profile_option_list.dart';

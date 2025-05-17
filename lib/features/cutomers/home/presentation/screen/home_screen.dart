@@ -9,19 +9,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            spacing: 10,
-            children: [
-              HomeHeader(),
-              DiscountBanner(),
-              Categories(),
-              SpecialOffers(),
-              PopularProducts(),
-            ],
-          ),
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          spacing: 10,
+          children: [
+            HomeHeader(),
+            DiscountBanner(),
+            Categories(),
+            SpecialOffers(),
+            PopularProducts(),
+          ],
         ),
       ),
     );
