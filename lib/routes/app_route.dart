@@ -1,3 +1,5 @@
+import 'package:deal_sell/features/auth/presentation/screens/forget_password.dart';
+
 import '../features/cutomers/profile/presentation/screens/help_center_screen.dart';
 import '../features/cutomers/profile/presentation/screens/theme_screen.dart';
 import '../features/on_boarding/on_boarding_screen.dart';
@@ -31,9 +33,14 @@ final router = GoRouter(
       builder: (context, state) => LoginScreen(),
     ),
     GoRoute(
-      path: 'registerScreen',
-      name: 'RegisterScreen',
+      path: '/registerScreen',
+      name: 'registerScreen',
       builder: (context, state) => RegisterScreen(),
+    ),
+    GoRoute(
+      path: '/forgetPassword',
+      name: 'forgetPassword',
+      builder: (context, state) => ForgetPasswordScreen(),
     ),
     GoRoute(
       path: '/themeSelectorScreen',

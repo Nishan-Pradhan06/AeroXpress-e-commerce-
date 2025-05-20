@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // === BRAND COLORS ===
 
 // Primary Brand Color (Used for CTAs like "Add to Cart", "Buy Now", etc.)
-Color brandPrimaryColor = const Color(0xFF1C5FAB); // Vibrant Blue
+Color brandPrimaryColor = const Color(0xFF2554A4); // Vibrant Blue
 
 // Secondary Accent Color (Used in navigation bars, buttons, headers)
 Color brandSecondaryColor = const Color(
