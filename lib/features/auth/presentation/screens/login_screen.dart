@@ -53,6 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         CustomTextFormField(
                           hintText: 'Password',
                           obscureText: true,
+                          validator: InputValidator.validatePassword,
                           onSaved: (password) {
                             // Save password
                           },
@@ -62,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               _formKey.currentState!.save();
-                              // Navigate to the main screen
+                              context.goNamed('bottomNav');
                             }
                           },
                           style: ElevatedButton.styleFrom(

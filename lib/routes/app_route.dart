@@ -24,12 +24,12 @@ final router = GoRouter(
     ),
     GoRoute(
       path: '/bottomNav',
-      name: 'BottomNavBarScreen',
+      name: 'bottomNav',
       builder: (context, state) => BottomNavBarScreen(),
     ),
     GoRoute(
       path: '/loginScreen',
-      name: 'LoginScreen',
+      name: 'loginScreen',
       builder: (context, state) => LoginScreen(),
     ),
     GoRoute(

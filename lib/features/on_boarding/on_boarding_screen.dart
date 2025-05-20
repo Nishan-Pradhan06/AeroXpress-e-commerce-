@@ -88,7 +88,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           visible: _currentPage >= onboardingData.length - 1,
                           child: ShadIconButton(
                             onPressed: () {
-                              context.goNamed('BottomNavBarScreen');
+                              context.goNamed('loginScreen');
                             },
                             icon: Icon(Icons.arrow_forward_ios, size: 12),
                           ),
