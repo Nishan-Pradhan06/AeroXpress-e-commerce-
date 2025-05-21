@@ -7,7 +7,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'core/theme/app_theme.dart';
 import 'features/auth/presentation/provider/login_provider.dart';
 import 'features/auth/presentation/provider/register_provider.dart';
-import 'features/cutomers/profile/presentation/providers/theme_provider.dart';
+import 'features/cutomers/profile/presentation/providers/theme_provider.dart'; 
 import 'path/path.dart';
 import 'routes/app_route.dart';
 
