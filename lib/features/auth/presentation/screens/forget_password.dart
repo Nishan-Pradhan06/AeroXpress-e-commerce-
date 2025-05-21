@@ -2,6 +2,7 @@ import 'package:deal_sell/core/helpers/input_validator_helper.dart';
 import 'package:deal_sell/core/theme/app_colors.dart';
 import 'package:deal_sell/path/path.dart';
 import 'package:flutter/gestures.dart';
+import '../../../../core/constant/app_images.dart';
 import '../widget/custom_text_field.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
@@ -26,7 +27,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
               child: Column(
                 children: [
                   SizedBox(height: constraints.maxHeight * 0.1),
-                  Image.asset("assets/logo/logo.png", height: 100),
+                  Image.asset(AppImages.logo, height: 100),
                   SizedBox(height: constraints.maxHeight * 0.1),
                   Text(
                     "Forgot Password",
@@ -43,8 +44,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           hintText: 'Phone Number',
                           keyboardType: TextInputType.phone,
                           validator: InputValidator.validatePhone,
-                          onSaved: (phone) {
-                          },
+                          onSaved: (phone) {},
                         ),
                         const SizedBox(height: 16),
                         ElevatedButton(

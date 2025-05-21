@@ -4,6 +4,7 @@ import 'package:deal_sell/core/theme/app_theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../../../core/constant/app_images.dart';
 import '../widget/custom_text_field.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -27,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 children: [
                   SizedBox(height: constraints.maxHeight * 0.1),
-                  Image.asset("assets/logo/logo.png", height: 100),
+                  Image.asset(AppImages.logo, height: 100),
                   SizedBox(height: constraints.maxHeight * 0.1),
                   Text(
                     "Sign In",

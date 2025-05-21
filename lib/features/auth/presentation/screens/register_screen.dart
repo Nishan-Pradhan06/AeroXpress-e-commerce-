@@ -3,6 +3,7 @@ import 'package:deal_sell/core/theme/app_colors.dart';
 import 'package:deal_sell/core/theme/app_theme.dart';
 import 'package:deal_sell/path/path.dart';
 import 'package:flutter/gestures.dart';
+import '../../../../core/constant/app_images.dart';
 import '../widget/custom_text_field.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -28,7 +29,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: Column(
                 children: [
                   SizedBox(height: constraints.maxHeight * 0.1),
-                  Image.asset("assets/logo/logo.png", height: 100),
+                  Image.asset(AppImages.logo, height: 100),
                   SizedBox(height: constraints.maxHeight * 0.1),
                   Text(
                     "Sign Up",
