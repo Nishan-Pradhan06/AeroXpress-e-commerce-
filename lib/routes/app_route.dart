@@ -20,6 +20,7 @@ final router = GoRouter(
     GoRoute(
       path: '/onBoardingScreen',
       name: 'onBoardingScreen',
+      // redirect: ,
       builder: (context, state) => OnBoardingScreen(),
     ),
     GoRoute(

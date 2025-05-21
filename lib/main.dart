@@ -1,3 +1,5 @@
+import 'package:deal_sell/core/config/env_config.dart';
+import 'package:deal_sell/core/services/cache_services.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -11,8 +13,21 @@ import 'routes/app_route.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  //firebase initialized
   await Firebase.initializeApp();
+
+  //Crashlytics initialized
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+
+  //Enviroment Config
+  EnvConfig.initialize(Environment.development);
+
+  //Global SharedPreferences
+  await CacheServices.instance.init();
+
+  //
+
   runApp(DevicePreview(enabled: false, builder: (context) => MyApp()));
 }
 
