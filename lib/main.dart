@@ -5,7 +5,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'core/dl/dependency_injection.dart';
+import 'core/services/once_cache_service.dart';
 import 'core/theme/app_theme.dart';
+import 'features/on_boarding/cubit/on_boarding_cubit.dart';
 import 'path/path.dart';
 import 'routes/app_route.dart';
 
@@ -14,6 +16,9 @@ void main() async {
 
   //firebase initialized
   await Firebase.initializeApp();
+
+  //dependency Injection service locator
+  await setupServiceLocator();
 
   //Crashlytics initialized
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
@@ -25,9 +30,7 @@ void main() async {
   await CacheServices.instance.init();
 
   //Once SharedPreferences
-
-  //dependency Injection service locator
-  await setupServiceLocator();
+  await sl<OnceCacheService>().init();
 
   runApp(DevicePreview(enabled: false, builder: (context) => MyApp()));
 }
@@ -39,7 +42,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [],
+      providers: [BlocProvider(create: (context) => sl<OnBoardingCubit>())],
       child: ShadApp.custom(
         appBuilder: (BuildContext context, ThemeData theme) {
           return MaterialApp.router(

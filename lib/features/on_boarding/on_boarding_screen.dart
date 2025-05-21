@@ -1,3 +1,6 @@
+import 'package:deal_sell/features/on_boarding/cubit/on_boarding_cubit.dart';
+
+import '../../core/dl/dependency_injection.dart';
 import '../../core/theme/app_colors.dart';
 import '../../path/path.dart';
 
@@ -35,6 +38,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       "onBoarding": "assets/image/shape3.png",
     },
   ];
+
+  void _onBoardingEnd() {
+    sl<OnBoardingCubit>().setOnBoarding();
+    context.goNamed('loginScreen');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,13 +90,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   Padding(
                     padding: const EdgeInsets.only(right: 10.0),
                     child: SizedBox(
-                      width: 30,
+                      width: 40,
                       child: Center(
                         child: Visibility(
                           visible: _currentPage >= onboardingData.length - 1,
                           child: ShadIconButton(
                             onPressed: () {
-                              context.goNamed('loginScreen');
+                              _onBoardingEnd();
                             },
                             icon: Icon(Icons.arrow_forward_ios, size: 12),
                           ),
