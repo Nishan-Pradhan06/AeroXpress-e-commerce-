@@ -1,3 +1,4 @@
+import 'package:deal_sell/core/constant/bottom_nav_icon_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../core/widget/badge.dart';
@@ -42,29 +43,29 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
           // showUnselectedLabels: false,
           items: [
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/svg/home.svg'),
-              activeIcon: SvgPicture.asset('assets/svg/home_bold.svg'),
+              icon: SvgPicture.asset(BottomNavIconConstant.home),
+              activeIcon: SvgPicture.asset(BottomNavIconConstant.homeBold),
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/svg/category.svg'),
-              activeIcon: SvgPicture.asset('assets/svg/category_bold.svg'),
+              icon: SvgPicture.asset(BottomNavIconConstant.category),
+              activeIcon: SvgPicture.asset(BottomNavIconConstant.categoryBold),
               label: 'Category',
             ),
             BottomNavigationBarItem(
               icon: CustomBadge(
                 count: '4',
-                child: SvgPicture.asset('assets/svg/cart.svg'),
+                child: SvgPicture.asset(BottomNavIconConstant.cart),
               ),
               activeIcon: CustomBadge(
                 count: '4',
-                child: SvgPicture.asset('assets/svg/cart_bold.svg'),
+                child: SvgPicture.asset(BottomNavIconConstant.cartBold),
               ),
               label: 'Cart',
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/svg/profile.svg'),
-              activeIcon: SvgPicture.asset('assets/svg/profile_bold.svg'),
+              icon: SvgPicture.asset(BottomNavIconConstant.profile),
+              activeIcon: SvgPicture.asset(BottomNavIconConstant.profileBold),
               label: 'Profile',
             ),
           ],

@@ -27,7 +27,7 @@ final router = GoRouter(
         final isOnBoardingCompleted =
             await sl<OnceCacheService>().getOnBoardingCache();
         if (isOnBoardingCompleted != null) {
-          return AppRoutesName.loginScreen;
+          return AppRoutesName.loginScreen.path;
         }
         return null;
       },
