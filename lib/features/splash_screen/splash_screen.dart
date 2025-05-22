@@ -1,3 +1,4 @@
+import 'package:deal_sell/routes/app_route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -25,7 +26,8 @@ class _SplashScreenState extends State<SplashScreen> {
     // Navigate to next screen
     Future.delayed(const Duration(seconds: 2), () {
       // If you're using GoRouter
-      context.pushNamed('onBoardingScreen');
+      if (!mounted) return;
+      context.pushNamed(AppRoutesName.onBoarding);
     });
   }
 

@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:deal_sell/routes/app_route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -92,7 +93,7 @@ class ProfileScreen extends StatelessWidget {
                   'Theme',
                   icon,
                   onTap: () {
-                    context.pushNamed('ThemeSelectorScreen');
+                    context.pushNamed(AppRoutesName.themeSelectionScreen);
                   },
                 );
               },
@@ -103,7 +104,7 @@ class ProfileScreen extends StatelessWidget {
               'Help Center',
               Icons.help_center,
               onTap: () {
-                context.pushNamed('HelpCenter');
+                context.pushNamed(AppRoutesName.helpScreen);
                 log('help center');
               },
             ),
@@ -116,7 +117,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               title: Text('Logout', style: TextStyle(color: statusErrorColor)),
               onTap: () {
-                context.goNamed('LoginScreen');
+                context.goNamed(AppRoutesName.loginScreen);
               },
             ),
           ],

@@ -1,6 +1,7 @@
 import 'package:deal_sell/core/helpers/input_validator_helper.dart';
 import 'package:deal_sell/core/theme/app_colors.dart';
 import 'package:deal_sell/core/theme/app_theme.dart';
+import 'package:deal_sell/routes/app_route_names.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -64,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               _formKey.currentState!.save();
-                              context.goNamed('bottomNav');
+                              context.goNamed(AppRoutesName.bottomNavBar);
                             }
                           },
                           style: ElevatedButton.styleFrom(
@@ -78,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         TextButton(
                           onPressed: () {
-                            context.pushNamed('forgetPassword');
+                            context.pushNamed(AppRoutesName.forgetPassword);
                           },
                           child: Text(
                             'Forgot Password?',
@@ -112,7 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 recognizer:
                                     TapGestureRecognizer()
                                       ..onTap = () {
-                                        context.pushNamed('registerScreen');
+                                        context.pushNamed(AppRoutesName.registerScreen);
                                       },
                               ),
                             ],
