@@ -1,4 +1,6 @@
-import '../../../../../path/path.dart';
+
+import 'package:flutter/material.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 Widget buildProfileOption(
   String title,

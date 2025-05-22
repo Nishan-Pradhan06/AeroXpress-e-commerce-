@@ -1,8 +1,9 @@
 import 'package:deal_sell/features/on_boarding/cubit/on_boarding_cubit.dart';
-
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 import '../../core/dl/dependency_injection.dart';
 import '../../core/theme/app_colors.dart';
-import '../../path/path.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});

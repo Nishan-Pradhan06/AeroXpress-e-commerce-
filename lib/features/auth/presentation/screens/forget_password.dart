@@ -1,7 +1,8 @@
 import 'package:deal_sell/core/helpers/input_validator_helper.dart';
 import 'package:deal_sell/core/theme/app_colors.dart';
-import 'package:deal_sell/path/path.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../core/constant/app_images.dart';
 import '../widget/custom_text_field.dart';
 

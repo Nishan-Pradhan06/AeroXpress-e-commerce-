@@ -3,12 +3,13 @@ import 'package:deal_sell/core/services/cache_services.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 import 'core/dl/dependency_injection.dart';
 import 'core/services/once_cache_service.dart';
 import 'core/theme/app_theme.dart';
 import 'features/on_boarding/cubit/on_boarding_cubit.dart';
-import 'path/path.dart';
 import 'routes/app_route.dart';
 
 void main() async {

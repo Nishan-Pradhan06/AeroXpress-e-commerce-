@@ -1,6 +1,7 @@
 import 'package:deal_sell/core/theme/app_theme.dart';
 import 'package:deal_sell/core/widget/padding.dart';
-import 'package:deal_sell/path/path.dart';
+import 'package:flutter/material.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 class ContactTabScreen extends StatelessWidget {
   const ContactTabScreen({super.key});

@@ -1,4 +1,4 @@
-import '../../../../../path/path.dart';
+import 'package:flutter/material.dart';
 import 'contact_tab_screen.dart';
 import 'faq_tab_screen.dart';
 
