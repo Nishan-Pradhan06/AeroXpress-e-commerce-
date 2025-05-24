@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../../core/widget/padding.dart';
@@ -6,6 +5,8 @@ import '../../data/model/product_list.dart';
 import '../widgets/icon_with_btn_counter.dart';
 import '../widgets/product_card.dart';
 import '../widgets/search_field.dart';
+import '../widgets/section_title.dart';
+import '../widgets/special_offer_card.dart';
 import 'product_details_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -24,6 +25,7 @@ class HomeScreen extends StatelessWidget {
             Categories(),
             SpecialOffers(),
             PopularProducts(),
+            RecentlyAddedProducts(),
           ],
         ),
       ),
@@ -176,110 +178,6 @@ class SpecialOffers extends StatelessWidget {
   }
 }
 
-class SpecialOfferCard extends StatelessWidget {
-  const SpecialOfferCard({
-    super.key,
-    required this.category,
-    required this.image,
-    required this.numOfBrands,
-    required this.onTap,
-  });
-
-  final String category, image;
-  final int numOfBrands;
-  final GestureTapCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomPadding(
-      left: 10,
-      right: 0,
-
-      child: GestureDetector(
-        onTap: onTap,
-        child: SizedBox(
-          width: 242,
-          height: 100,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Stack(
-              children: [
-                Image.network(image, fit: BoxFit.cover),
-                Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.black54,
-                        Colors.black38,
-                        Colors.black26,
-                        Colors.transparent,
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 15,
-                    vertical: 10,
-                  ),
-                  child: Text.rich(
-                    TextSpan(
-                      style: const TextStyle(color: Colors.white),
-                      children: [
-                        TextSpan(
-                          text: "$category\n",
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextSpan(text: "$numOfBrands Brands"),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class SectionTitle extends StatelessWidget {
-  const SectionTitle({super.key, required this.title, required this.onTap});
-
-  final String title;
-  final GestureTapCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomPadding(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              color: Colors.black,
-            ),
-          ),
-          TextButton(
-            onPressed: onTap,
-            style: TextButton.styleFrom(foregroundColor: Colors.grey),
-            child: const Text("See more"),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class PopularProducts extends StatelessWidget {
   const PopularProducts({super.key});
 
@@ -310,6 +208,36 @@ class PopularProducts extends StatelessWidget {
                 return const SizedBox.shrink();
               }),
             ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class RecentlyAddedProducts extends StatelessWidget {
+  const RecentlyAddedProducts({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SectionTitle(title: "Recently Added Products", onTap: () {}),
+        CustomPadding(
+          child: GridView.builder(
+            padding: EdgeInsets.zero,
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: demoProducts.length,
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 200,
+              childAspectRatio: 0.75,
+              // mainAxisSpacing: 2,
+              crossAxisSpacing: 16,
+            ),
+            itemBuilder:
+                (context, index) =>
+                    ProductCard(product: demoProducts[index], onPress: () {}),
           ),
         ),
       ],
