@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:deal_sell/routes/app_route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -39,40 +40,46 @@ class ProfileScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Profile header
-            Center(
-              child: Column(
-                children: [
-                  CircleAvatar(
-                    radius: 50,
-                    backgroundColor: Colors.grey[300],
-                    child: Icon(
-                      Icons.person,
-                      size: 50,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                  SizedBox(height: 16),
-                  Text(
-                    'Nishan Pradhan',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    '+977 9817326306',
-                    style: TextStyle(fontSize: 16, color: Colors.grey[600]),
-                  ),
-                ],
-              ),
+            ProfileCard(
+              email: '+977 9817326306',
+              imageSrc:
+                  'https://avatars.githubusercontent.com/u/105001135?s=400&u=deb717807fc5fcc62502f74287539628ad6a3289&v=4',
+              name: 'Nishan Pradhan',
+              isShowHi: false,
             ),
 
-            SizedBox(height: 32),
+            // Center(
+            //   child: Column(
+            //     children: [
+            //       CircleAvatar(
+            //         radius: 50,
+            //         backgroundColor: Colors.grey[300],
+            //         child: Icon(
+            //           Icons.person,
+            //           size: 50,
+            //           color: Colors.grey[600],
+            //         ),
+            //       ),
+            //       SizedBox(height: 16),
+            //       Text(
+            //         'Nishan Pradhan',
+            //         style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            //       ),
+            //       SizedBox(height: 8),
+            //       Text(
+            //         '+977 9817326306',
+            //         style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+            //       ),
+            //     ],
+            //   ),
+            // ),
 
             // Profile options
-            buildProfileOption(
-              'Edit Profile',
-              LucideIcons.userRound,
-              onTap: () {},
-            ),
+            // buildProfileOption(
+            //   'Edit Profile',
+            //   LucideIcons.userRound,
+            //   onTap: () {},
+            // ),
             buildProfileOption('Address', Icons.location_on),
             buildProfileOption('Notification', Icons.notifications),
             buildProfileOption('Payment', Icons.payment),
@@ -122,6 +129,112 @@ class ProfileScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class ProfileCard extends StatelessWidget {
+  const ProfileCard({
+    super.key,
+    required this.name,
+    required this.email,
+    required this.imageSrc,
+    this.proLableText = "Pro",
+    this.isPro = false,
+    this.press,
+    this.isShowHi = true,
+    this.isShowArrow = true,
+  });
+
+  final String name, email, imageSrc;
+  final String proLableText;
+  final bool isPro, isShowHi, isShowArrow;
+  final VoidCallback? press;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      onTap: press,
+      leading: CircleAvatar(
+        radius: 28,
+        child: NetworkImageWithLoader(imageSrc),
+      ),
+      title: Row(
+        children: [
+          Text(
+            isShowHi ? " $name" : name,
+            style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          const SizedBox(width: 10),
+          if (isPro)
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+              child: Text(
+                proLableText,
+                style: const TextStyle(
+                  fontSize: 10,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white,
+                  letterSpacing: 0.7,
+                  height: 1,
+                ),
+              ),
+            ),
+        ],
+      ),
+      subtitle: Text(email),
+      trailing:
+          isShowArrow
+              ? Icon(
+                LucideIcons.chevronRight,
+                color: Theme.of(context).iconTheme.color!.withOpacity(0.4),
+              )
+              : null,
+    );
+  }
+}
+
+class NetworkImageWithLoader extends StatelessWidget {
+  final BoxFit fit;
+
+  const NetworkImageWithLoader(
+    this.src, {
+    super.key,
+    this.fit = BoxFit.cover,
+    this.radius = 10,
+  });
+
+  final String src;
+  final double radius;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.all(Radius.circular(radius)),
+      child: CachedNetworkImage(
+        fit: fit,
+        imageUrl: src,
+        imageBuilder:
+            (context, imageProvider) => Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(image: imageProvider, fit: fit),
+              ),
+            ),
+        // placeholder:
+        //     (context, url) => SkeletonAvatar(
+        //       style: SkeletonAvatarStyle(
+        //         width: double.infinity,
+        //         height: double.infinity,
+        //         borderRadius: BorderRadius.circular(radius),
+        //       ),
+        //     ),
+        errorWidget: (context, url, error) => const Icon(Icons.error),
       ),
     );
   }
